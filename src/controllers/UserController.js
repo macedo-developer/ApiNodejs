@@ -19,7 +19,7 @@ module.exports = {
         return res.json(user);
     },
     async update(req, res) {
-        const user = await User.findByIdAndUpdate(req.params.id);
+        const user = await User.findByIdAndUpdate(req.params.id, req.body, { new: true });
 
         return res.json(user);
     },
