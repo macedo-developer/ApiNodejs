@@ -1,16 +1,17 @@
 const express = require('express');
-const cors = require('cors');
+const cors = require("cors");
 const mongoose = require('mongoose');
 const requireDir = require('require-dir');
 
+//iNICIANDO O APP
 const app = express();
 app.use(express.json());
 app.use(cors());
 
-mongoose.connect('mongodb://localhost:27017/systPontos', { useNewUrlParser: true });
+mongoose.connect('mongodb://localhost:27017/nodeApi', { useNewUrlParser: true });
 
-requireDir('./scr/models');
+requireDir('./src/models/');
 
-app.use('/api', require('./src/router'));
+app.use('/api', require('./src/routes'));
 
-app.listen(2002);
+app.listen(2001);

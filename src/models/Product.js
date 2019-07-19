@@ -1,27 +1,29 @@
 const mongoose = require('mongoose');
+// const mongoosePaginate = require("mongoose-paginate");
 
-const UserSchema = new mongoose.Schema({
-    name: {
+const ProductSchema = new mongoose.Schema({
+    title: {
         type: String,
         required: true
     },
-    user: {
+    description: {
         type: String,
         required: true
     },
-    password: {
+    price: {
         type: String,
         required: true
     },
-    email: {
+    url: {
         type: String,
         required: true
     },
     creaedAt: {
         type: Date,
-        default: Date.now
+        default: Date.now,
     }
-
 });
 
-mongoose.model('User', UserSchema);
+// ProductSchema.plugin(mongoosePaginate);
+
+mongoose.model('Product', ProductSchema);
